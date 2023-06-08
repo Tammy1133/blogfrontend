@@ -20,7 +20,9 @@ export const EachSection = () => {
   const getAllPosts = async () => {
     try {
       setLoading(true);
-      const data = await Axios.get("http://localhost:3001/allposts");
+      const data = await Axios.get(
+        "https://blogbackend2.onrender.com/allposts"
+      );
       setblogdata(data.data.reverse());
 
       setPageData(

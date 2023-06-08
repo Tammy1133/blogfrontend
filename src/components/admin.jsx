@@ -26,7 +26,9 @@ export const Admin = () => {
   const getAllPosts = async () => {
     try {
       setLoading(true);
-      const data = await Axios.get("http://localhost:3001/allposts");
+      const data = await Axios.get(
+        "https://blogbackend2.onrender.com/allposts"
+      );
       setAllPosts(data.data.reverse());
       setLoading(false);
     } catch (error) {
@@ -88,7 +90,7 @@ export const Admin = () => {
       console.log(id);
       console.log(headers.token);
       await Axios.put(
-        "http://localhost:3001/editpost",
+        "https://blogbackend2.onrender.com/editpost",
 
         {
           _id: id,
@@ -125,7 +127,7 @@ export const Admin = () => {
   const handleDelete = async () => {
     try {
       setLoading(true);
-      await Axios.delete(`http://localhost:3001/deletepost/${id}`);
+      await Axios.delete(`https://blogbackend2.onrender.com/deletepost/${id}`);
 
       console.log("Successful");
       const newData = allPosts.filter((item) => item._id !== id);
@@ -142,7 +144,7 @@ export const Admin = () => {
 
     try {
       setLoading(true);
-      await Axios.post(`http://localhost:3001/addpost`, {
+      await Axios.post(`https://blogbackend2.onrender.com/addpost`, {
         image: base64code,
         title,
         content,

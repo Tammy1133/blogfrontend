@@ -42,7 +42,7 @@ export const PageComment = (props) => {
         return item.id !== id;
       });
       console.log("password", "is", password);
-      await Axios.put("http://localhost:3001/editcomment", {
+      await Axios.put("https://blogbackend2.onrender.com/editcomment", {
         _id: props._id,
         id: id,
         comment: newData,
@@ -70,7 +70,7 @@ export const PageComment = (props) => {
         }
       });
       console.log(newData);
-      await Axios.put("http://localhost:3001/editcomment", {
+      await Axios.put("https://blogbackend2.onrender.com/editcomment", {
         _id: props._id,
         id: id,
         password: password,

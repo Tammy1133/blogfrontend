@@ -38,7 +38,9 @@ export const EachPost = () => {
 
   const getAllPosts = async () => {
     try {
-      const data = await Axios.get("http://localhost:3001/allposts");
+      const data = await Axios.get(
+        "https://blogbackend2.onrender.com/allposts"
+      );
       setAllPosts(data.data.reverse());
     } catch (error) {
       console.log(error);
@@ -178,7 +180,7 @@ export const EachPost = () => {
 
             try {
               setLoading(true);
-              await Axios.put("http://localhost:3001/addcomment", {
+              await Axios.put("https://blogbackend2.onrender.com/addcomment", {
                 _id: pagedatafromredux._id,
                 name: name,
                 password: password,

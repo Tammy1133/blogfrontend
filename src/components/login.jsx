@@ -57,7 +57,7 @@ export const Login = () => {
   const logUser = async () => {
     setLoading(true);
     try {
-      await Axios.post("http://localhost:3001/login", {
+      await Axios.post("https://blogbackend2.onrender.com/login", {
         username: username,
         password: password,
       }).then((data) => {
