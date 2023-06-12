@@ -346,7 +346,7 @@ export const Home = () => {
                       <div
                         className="my-3 text-[white] cursor-pointer hover:text-orange-500 hover:underline text-sm sm:text-xl mx-auto md:mx-0 "
                         onClick={() => {
-                          navigate(`/post/${blogData[3].id}`);
+                          navigate(`/post/${blogData[3]._id}`);
                         }}
                       >
                         {blogData[3].title.split(" ").slice(0, 10).join(" ")}...
@@ -379,7 +379,7 @@ export const Home = () => {
                       <div
                         className="my-3 text-[white] cursor-pointer hover:text-orange-500 hover:underline text-sm sm:text-xl mx-auto md:mx-0 "
                         onClick={() => {
-                          navigate(`/post/${blogData[1].id}`);
+                          navigate(`/post/${blogData[1]._id}`);
                         }}
                       >
                         {blogData[1].title.split(" ").slice(0, 10).join(" ")}...
@@ -413,7 +413,7 @@ export const Home = () => {
                       <div
                         className="my-3 text-[white] cursor-pointer hover:text-orange-500 hover:underline text-sm sm:text-xl mx-auto md:mx-0 "
                         onClick={() => {
-                          navigate(`/post/${blogData[7].id}`);
+                          navigate(`/post/${blogData[7]._id}`);
                         }}
                       >
                         {blogData[7].title.split(" ").slice(0, 10).join(" ")}...
@@ -446,7 +446,7 @@ export const Home = () => {
                       <div
                         className="my-3 text-[white] cursor-pointer hover:text-orange-500 hover:underline text-sm sm:text-xl mx-auto md:mx-0 "
                         onClick={() => {
-                          navigate(`/post/${blogData[9].id}`);
+                          navigate(`/post/${blogData[9]._id}`);
                         }}
                       >
                         {blogData[9].title.split(" ").slice(0, 10).join(" ")}...
@@ -479,7 +479,7 @@ export const Home = () => {
                       <div
                         className="my-3 text-[white] cursor-pointer hover:text-orange-500 hover:underline text-sm sm:text-xl mx-auto md:mx-0 "
                         onClick={() => {
-                          navigate(`/post/${blogData[11].id}`);
+                          navigate(`/post/${blogData[11]._id}`);
                         }}
                       >
                         {blogData[11].title.split(" ").slice(0, 10).join(" ")}
@@ -513,7 +513,7 @@ export const Home = () => {
                       <div
                         className="my-3 text-[white] cursor-pointer hover:text-orange-500 hover:underline text-sm sm:text-xl mx-auto md:mx-0 "
                         onClick={() => {
-                          navigate(`/post/${blogData[15].id}`);
+                          navigate(`/post/${blogData[15]._id}`);
                         }}
                       >
                         {blogData[15].title.split(" ").slice(0, 10).join(" ")}
