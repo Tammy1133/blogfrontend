@@ -2,7 +2,7 @@ import { ActionTypes } from "../constants/action-types";
 
 export const setUser = (data) => {
   return {
-    type: ActionTypes.SET_USER,
+    type: ActionTypes.ADD_USER,
     payload: data,
   };
 };

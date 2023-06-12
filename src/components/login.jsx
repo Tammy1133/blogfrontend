@@ -33,7 +33,7 @@ export const Login = () => {
   }, [errorMessage]);
 
   const user = useSelector((state) => {
-    return state.user.token;
+    return state?.user?.token;
   });
 
   useEffect(() => {
@@ -57,19 +57,21 @@ export const Login = () => {
   const logUser = async () => {
     setLoading(true);
     try {
-      await Axios.post("https://blogbackend2.onrender.com/login", {
+      const data = await Axios.post("https://blogbackend2.onrender.com/login", {
         username: username,
         password: password,
-      }).then((data) => {
-        dispatch(
-          setUser({ username: data.data.username, token: data.data.token })
-        );
-        setLoading(false);
-        navigate("/admin");
       });
+      console.log(data);
+
+      dispatch(
+        setUser({ username: data.data.username, token: data.data.token })
+      );
+      setLoading(false);
+      navigate("/admin");
     } catch (error) {
       setLoading(false);
-      setErrorMessage(error.response.data.error);
+      console.log(error);
+      // setErrorMessage(error.response.data.error);
     }
   };
 

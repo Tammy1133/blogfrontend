@@ -6,7 +6,7 @@ export const addUser = (user) => {
     payload: user,
   };
 };
-export const removeuser = () => {
+export const removeUser = () => {
   return {
     type: ActionTypes.REMOVE_USER,
   };

@@ -7,12 +7,12 @@ export const User = (state = initialState, action) => {
     case ActionTypes.ADD_USER:
       return {
         ...state,
-        users: { _id: action.payload._id },
+        user: action.payload.username,
+        token: action.payload.token,
       };
     case ActionTypes.REMOVE_USER:
       return {
-        ...state,
-        users: {},
+        users: [],
       };
     default:
       return state;

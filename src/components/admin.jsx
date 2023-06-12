@@ -19,8 +19,14 @@ export const Admin = () => {
   const [loading, setLoading] = useState(false);
 
   const user = useSelector((state) => {
-    return state.user.token;
+    return state?.user?.token;
   });
+
+  useEffect(() => {
+    if (!user) {
+      navigate("/login");
+    }
+  }, []);
   const [allPosts, setAllPosts] = useState([]);
 
   const getAllPosts = async () => {
