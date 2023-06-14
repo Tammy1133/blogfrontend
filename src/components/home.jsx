@@ -28,6 +28,8 @@ export const Home = () => {
       );
       setblogdata(data.data.reverse());
       setLoading(false);
+      const savedScrollPosition = localStorage.getItem("scrollPosition");
+      // console.log(savedScrollPosition);
     } catch (error) {
       setLoading(false);
       console.log(error);
@@ -60,40 +62,52 @@ export const Home = () => {
     // setAllSections([...allSections, ...data.slice(0, 2)]);
   };
 
+  const [scrollPosition, setScrollPosition] = useState(0);
   useEffect(() => {
-    getRomance();
-    getPolitics();
-    getMusic();
-    getOthers();
-    getAllPosts();
+    setScrollPosition(localStorage.getItem("scrollPosition"));
   }, []);
+  console.log(scrollPosition);
 
   const handleScroll = () => {
     localStorage.setItem("scrollPosition", window.scrollY);
   };
 
-  // Attach the event listener
   useEffect(() => {
+    // Add scroll event listener to update scroll position
     window.addEventListener("scroll", handleScroll);
 
-    // Cleanup the event listener on component unmount
+    // Retrieve the scroll position from local storage
+
+    // Fetch necessary data here (replace with your data fetching logic)
+    getAllPosts().then(() => {
+      getRomance();
+      getPolitics();
+      getMusic();
+      getOthers();
+      const storedScrollPosition = localStorage.getItem("scrollPosition");
+
+      // If a scroll position is stored, scroll to that position
+      if (storedScrollPosition) {
+        window.scrollTo(0, parseInt(storedScrollPosition, 10));
+      }
+
+      // Remove the stored scroll position from local storage
+      localStorage.removeItem("scrollPosition");
+    });
+  }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, parseInt(scrollPosition));
+  }, [blogData]);
+  useEffect(() => {
+    // Add scroll event listener to update scroll position
+    window.addEventListener("scroll", handleScroll);
+
+    // Remove scroll event listener
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-  useEffect(() => {
-    // Retrieve the saved scroll position from localStorage
-    const savedScrollPosition = localStorage.getItem("scrollPosition");
-    // console.log(savedScrollPosition);
-
-    // Scroll to the saved position
-    if (savedScrollPosition) {
-      window.scrollTo(0, parseInt(savedScrollPosition));
-      console.log("Zagadat");
-    }
-  }, [blogData]);
-
   return loading ? (
     <div className="flex justify-center items-center h-[100vh] bg-black">
       <svg

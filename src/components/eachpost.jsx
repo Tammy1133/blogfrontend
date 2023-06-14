@@ -64,6 +64,8 @@ export const EachPost = () => {
 
     setPageData(data2);
 
+    window.scrollTo(0, 0);
+
     dispatch(pageactions(data2));
 
     // console.log(allposts);
@@ -75,10 +77,15 @@ export const EachPost = () => {
   });
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  window.scrollTo(0, 0);
+  useEffect(() => {
     const data = allposts.filter((item) => {
       return item.category === pageData.category;
     });
     setPageData2(data.filter((item) => item._id !== pageData._id));
+    window.scrollTo(0, 0);
   }, [pageData]);
 
   return pagedatafromredux?._id ? (
@@ -288,7 +295,7 @@ export const EachPost = () => {
                   className="my-3 text-[white] cursor-pointer hover:text-orange-500 hover:underline text-2xl mx-auto md:mx-0 text-center-on-sm"
                   onClick={() => {
                     // navigate(`/post/${item.id}`);
-                    window.open(`/post/${item.id}`, "_blank");
+                    window.open(`/post/${item._id}`, "_blank");
                   }}
                 >
                   {item.title.split(" ").slice(0, 10).join(" ")}...

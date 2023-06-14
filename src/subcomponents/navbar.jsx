@@ -76,14 +76,6 @@ export const Navbar = () => {
             >
               Music
             </h5>
-            <h5
-              onClick={() => {
-                navigate("/others");
-              }}
-              className="mr-3 text-white hover:scale-105 cursor-pointer"
-            >
-              Others
-            </h5>
           </div>
         </div>
       </div>
@@ -124,14 +116,6 @@ export const Navbar = () => {
             }}
           >
             Music
-          </h5>
-          <h5
-            className=" text-white hover:scale-105 cursor-pointer mt-3"
-            onClick={() => {
-              navigate("/others");
-            }}
-          >
-            Others
           </h5>
         </div>
       </div>
